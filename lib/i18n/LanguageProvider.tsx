@@ -6,7 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import {
@@ -14,6 +14,8 @@ import {
   type Locale,
   type Translations,
 } from "@/lib/i18n/translations";
+
+const STORAGE_KEY = "lawyn-ai-locale";
 
 type LanguageContextValue = {
   locale: Locale;
@@ -23,11 +25,49 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
+function isLocale(value: string | null): value is Locale {
+  return value === "en" || value === "tr";
+}
+
+let memoryLocale: Locale = "tr";
+const listeners = new Set<() => void>();
+
+function emit() {
+  listeners.forEach((listener) => listener());
+}
+
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
+
+function getClientLocale(): Locale {
+  const stored = window.localStorage.getItem(STORAGE_KEY);
+  if (isLocale(stored)) {
+    memoryLocale = stored;
+  }
+  return memoryLocale;
+}
+
+function getServerLocale(): Locale {
+  return "tr";
+}
+
+function writeLocale(next: Locale) {
+  memoryLocale = next;
+  window.localStorage.setItem(STORAGE_KEY, next);
+  emit();
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("tr");
+  const locale = useSyncExternalStore(
+    subscribe,
+    getClientLocale,
+    getServerLocale,
+  );
 
   const setLocale = useCallback((next: Locale) => {
-    setLocaleState(next);
+    writeLocale(next);
   }, []);
 
   useEffect(() => {

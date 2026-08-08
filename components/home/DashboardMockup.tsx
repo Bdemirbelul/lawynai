@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 function SkeletonBar({ className = "" }: { className?: string }) {
@@ -124,20 +124,6 @@ export function DashboardMockup() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="absolute -bottom-3 right-3 z-10 flex max-w-[230px] items-start gap-2.5 rounded-xl border border-[#E4E7EC] bg-white p-3 shadow-[0_12px_28px_-10px_rgba(16,24,40,0.28)] sm:right-5 sm:max-w-[250px] sm:p-3.5">
-        <span className="mt-0.5 inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-[#12B76A] text-white shadow-sm">
-          <Check className="size-3.5" strokeWidth={3} aria-hidden="true" />
-        </span>
-        <div className="min-w-0">
-          <p className="text-[13px] font-semibold leading-tight text-[#101828]">
-            {t.mockup.analyzedTitle}
-          </p>
-          <p className="mt-1 text-[11.5px] leading-snug text-[#667085]">
-            {t.mockup.analyzedMessage}
-          </p>
         </div>
       </div>
     </div>

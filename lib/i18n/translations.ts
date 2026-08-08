@@ -139,6 +139,153 @@ export type Translations = {
     socialX: string;
     socialEmail: string;
   };
+  insightsPage: {
+    metaTitle: string;
+    metaDescription: string;
+    featuredBadge: string;
+    featuredCta: string;
+    latestHeading: string;
+    filters: {
+      all: string;
+      "legal-tech": string;
+      "ai-automation": string;
+      cybersecurity: string;
+      "digital-transformation": string;
+    };
+    categories: {
+      "legal-tech": string;
+      "ai-automation": string;
+      cybersecurity: string;
+      "digital-transformation": string;
+      "legal-operations": string;
+    };
+    readArticle: string;
+    listenNow: string;
+    downloadReport: string;
+    comingSoon: string;
+    loadMore: string;
+    minRead: string;
+    podcastLabel: string;
+    reportLabel: string;
+    emptyFilter: string;
+    newsletter: {
+      heading: string;
+      description: string;
+      placeholder: string;
+      button: string;
+      notice: string;
+      invalid: string;
+      loading: string;
+      success: string;
+    };
+    detail: {
+      back: string;
+      underPreparation: string;
+      disclaimer: string;
+    };
+  };
+  contactPage: {
+    metaTitle: string;
+    metaDescription: string;
+    heading: string;
+    description: string;
+    officeLabel: string;
+    phoneLabel: string;
+    emailLabel: string;
+    placeholders: {
+      address: string;
+      phone: string;
+      email: string;
+    };
+    socialUnavailable: string;
+    formTitle: string;
+    formDescription: string;
+    fields: {
+      fullName: string;
+      company: string;
+      email: string;
+      phone: string;
+      teamSize: string;
+      teamSizePlaceholder: string;
+      solutionInterest: string;
+      solutionPlaceholder: string;
+      message: string;
+      preferredContact: string;
+      consentPrefix: string;
+      privacyNotice: string;
+      privacyPolicy: string;
+      consentSuffix: string;
+      and: string;
+      noticeParticle: string;
+      policyParticle: string;
+    };
+    teamSizes: {
+      "1-5": string;
+      "6-20": string;
+      "21-50": string;
+      "51-100": string;
+      "101+": string;
+    };
+    solutions: {
+      "ai-document-analysis": string;
+      "case-management": string;
+      "document-automation": string;
+      "secure-client-portal": string;
+      "reporting-analytics": string;
+      "custom-software": string;
+      "system-integration": string;
+      "not-sure": string;
+    };
+    contactMethods: {
+      email: string;
+      phone: string;
+      "online-meeting": string;
+    };
+    messageHint: string;
+    submit: string;
+    submitting: string;
+    unconnected: string;
+    error: string;
+    nextHeading: string;
+    nextDescription: string;
+    steps: [
+      { title: string; description: string },
+      { title: string; description: string },
+      { title: string; description: string },
+      { title: string; description: string },
+    ];
+    legalDialog: {
+      title: string;
+      body: string;
+      close: string;
+    };
+  };
+  servicesPage: {
+    metaTitle: string;
+    metaDescription: string;
+    badge: string;
+    heading: string;
+    description: string;
+    primaryCta: string;
+    secondaryCta: string;
+    capabilities: [
+      { label: string; value: string },
+      { label: string; value: string },
+      { label: string; value: string },
+    ];
+    strip: [string, string, string, string];
+    introHeading: string;
+    introDescription: string;
+    previous: string;
+    next: string;
+    whatWeProvide: string;
+    learnMore: string;
+    closeDetail: string;
+    ctaHeading: string;
+    ctaDescription: string;
+    ctaPrimary: string;
+    ctaSecondary: string;
+  };
 };
 
 export const translations: Record<Locale, Translations> = {
@@ -380,6 +527,189 @@ export const translations: Record<Locale, Translations> = {
       socialX: "X (coming soon)",
       socialEmail: "Email (coming soon)",
     },
+    insightsPage: {
+      metaTitle: "Insights — Lawyn AI",
+      metaDescription:
+        "Editorial insights on legal technology, responsible AI, cybersecurity, and digital transformation from Lawyn AI.",
+      featuredBadge: "FEATURED",
+      featuredCta: "Read Full Report",
+      latestHeading: "Latest Insights",
+      filters: {
+        all: "All Topics",
+        "legal-tech": "Legal Technology",
+        "ai-automation": "AI & Automation",
+        cybersecurity: "Cybersecurity",
+        "digital-transformation": "Digital Transformation",
+      },
+      categories: {
+        "legal-tech": "Legal Technology",
+        "ai-automation": "AI & Automation",
+        cybersecurity: "Cybersecurity",
+        "digital-transformation": "Digital Transformation",
+        "legal-operations": "Legal Operations",
+      },
+      readArticle: "Read Article",
+      listenNow: "Listen Now",
+      downloadReport: "Download Report (PDF)",
+      comingSoon: "Coming Soon",
+      loadMore: "Load More Articles",
+      minRead: "min read",
+      podcastLabel: "PODCAST",
+      reportLabel: "WHITE PAPER",
+      emptyFilter: "No insights match this category yet.",
+      newsletter: {
+        heading: "Stay Ahead of Legal Innovation",
+        description:
+          "Receive a carefully selected weekly briefing on legal technology, responsible AI, cybersecurity, and digital transformation.",
+        placeholder: "Enter your work email",
+        button: "Subscribe",
+        notice:
+          "By subscribing, you agree to our Privacy Policy. You can unsubscribe at any time.",
+        invalid: "Please enter a valid work email address.",
+        loading: "Checking…",
+        success:
+          "Thanks. Our newsletter subscription system will be available soon.",
+      },
+      detail: {
+        back: "Back to Insights",
+        underPreparation: "Editorial content under preparation",
+        disclaimer:
+          "Lawyn AI editorial content is intended for general informational purposes and does not constitute legal advice.",
+      },
+    },
+    contactPage: {
+      metaTitle: "Contact & Request a Demo | Lawyn AI",
+      metaDescription:
+        "Request a personalized Lawyn AI demonstration and discover software solutions designed for modern legal professionals.",
+      heading: "Transform Your Legal Practice",
+      description:
+        "Request a personalized demonstration to discover how Lawyn AI can streamline your workflows, support secure document management, and help your team work more efficiently.",
+      officeLabel: "Office",
+      phoneLabel: "Direct Line",
+      emailLabel: "Email",
+      placeholders: {
+        address: "[Office address to be added]",
+        phone: "[Phone number to be added]",
+        email: "[Email address to be added]",
+      },
+      socialUnavailable: "Link unavailable",
+      formTitle: "Request a Demo",
+      formDescription:
+        "Complete the form and tell us about your needs. Our team will contact you to discuss the most suitable Lawyn AI solution.",
+      fields: {
+        fullName: "Full Name",
+        company: "Law Firm / Company Name",
+        email: "Work Email",
+        phone: "Phone Number (Optional)",
+        teamSize: "Team Size",
+        teamSizePlaceholder: "Select Team Size",
+        solutionInterest: "Solution Interest",
+        solutionPlaceholder: "Select Primary Interest",
+        message: "How can we help you? (Optional)",
+        preferredContact: "Preferred Contact Method",
+        consentPrefix: "I have read the",
+        privacyNotice: "Privacy Notice",
+        privacyPolicy: "Privacy Policy",
+        consentSuffix:
+          "and consent to the processing of my personal data for my demo request.",
+        and: "and",
+        noticeParticle: "",
+        policyParticle: "",
+      },
+      teamSizes: {
+        "1-5": "1–5",
+        "6-20": "6–20",
+        "21-50": "21–50",
+        "51-100": "51–100",
+        "101+": "101+",
+      },
+      solutions: {
+        "ai-document-analysis": "AI Document Analysis",
+        "case-management": "Case Management",
+        "document-automation": "Document Automation",
+        "secure-client-portal": "Secure Client Portal",
+        "reporting-analytics": "Reporting and Analytics",
+        "custom-software": "Custom Software Development",
+        "system-integration": "System Integration",
+        "not-sure": "Not Sure Yet",
+      },
+      contactMethods: {
+        email: "Email",
+        phone: "Phone",
+        "online-meeting": "Online Meeting",
+      },
+      messageHint: "Maximum 1000 characters",
+      submit: "Request Demo",
+      submitting: "Submitting…",
+      unconnected:
+        "The demo request service has not been connected yet. Your form was validated, but no data was submitted.",
+      error: "Something went wrong while preparing your request. Please try again.",
+      nextHeading: "What Happens Next?",
+      nextDescription:
+        "Our structured onboarding process helps your team adopt Lawyn AI with minimal disruption to existing workflows.",
+      steps: [
+        {
+          title: "Discovery",
+          description:
+            "We discuss your workflows, priorities, operational challenges, and technical requirements.",
+        },
+        {
+          title: "Solution Design",
+          description:
+            "We prepare a solution plan designed around your firm’s working model and objectives.",
+        },
+        {
+          title: "Integration",
+          description:
+            "We configure the platform and prepare the necessary data and system integrations.",
+        },
+        {
+          title: "Ongoing Support",
+          description:
+            "We support your team with training, technical assistance, and continuous product improvements.",
+        },
+      ],
+      legalDialog: {
+        title: "Temporary draft notice",
+        body: "This is temporary draft wording for Lawyn AI’s privacy materials. Final policy pages require legal review before production use.",
+        close: "Close",
+      },
+    },
+    servicesPage: {
+      metaTitle: "Legal Technology Services | Lawyn AI",
+      metaDescription:
+        "Explore Lawyn AI services for custom software development, legal workflow automation, AI integration, cloud migration, cybersecurity, and technical consulting.",
+      badge: "OUR EXPERTISE",
+      heading: "The Preferred Technology Partner for Legal Innovators",
+      description:
+        "We design secure, scalable, and intuitive digital solutions for the operational needs of modern legal practices. From custom software and workflow automation to artificial intelligence integration, Lawyn AI turns complex requirements into practical technology.",
+      primaryCta: "Discuss a Project",
+      secondaryCta: "Explore Services",
+      capabilities: [
+        { label: "Delivery Model", value: "Modular" },
+        { label: "Security Approach", value: "Security-First" },
+        { label: "Platform Design", value: "Scalable" },
+      ],
+      strip: [
+        "Security-First Architecture",
+        "Privacy-Conscious Design",
+        "Integration-Ready Systems",
+        "Continuous Technical Partnership",
+      ],
+      introHeading: "Comprehensive Technical Solutions",
+      introDescription:
+        "We do more than write code. We analyze legal workflows, design reliable system architecture, and create technology that helps legal teams operate more efficiently and securely.",
+      previous: "Previous service",
+      next: "Next service",
+      whatWeProvide: "What we provide",
+      learnMore: "Learn More",
+      closeDetail: "Close",
+      ctaHeading: "Ready to Modernize Your Firm’s Technical Infrastructure?",
+      ctaDescription:
+        "Schedule a consultation to discuss your workflows, technical requirements, and the most suitable Lawyn AI services for your organization.",
+      ctaPrimary: "Book Consultation",
+      ctaSecondary: "Explore Solutions",
+    },
   },
   tr: {
     nav: {
@@ -618,6 +948,189 @@ export const translations: Record<Locale, Translations> = {
       socialLinkedin: "LinkedIn (yakında)",
       socialX: "X (yakında)",
       socialEmail: "E-posta (yakında)",
+    },
+    insightsPage: {
+      metaTitle: "İçgörüler — Lawyn AI",
+      metaDescription:
+        "Lawyn AI’den hukuk teknolojileri, sorumlu yapay zekâ, siber güvenlik ve dijital dönüşüm üzerine editoryal içerikler.",
+      featuredBadge: "ÖNE ÇIKAN",
+      featuredCta: "Raporu İncele",
+      latestHeading: "Güncel İçgörüler",
+      filters: {
+        all: "Tüm Konular",
+        "legal-tech": "Hukuk Teknolojileri",
+        "ai-automation": "Yapay Zekâ ve Otomasyon",
+        cybersecurity: "Siber Güvenlik",
+        "digital-transformation": "Dijital Dönüşüm",
+      },
+      categories: {
+        "legal-tech": "Hukuk Teknolojileri",
+        "ai-automation": "Yapay Zekâ ve Otomasyon",
+        cybersecurity: "Siber Güvenlik",
+        "digital-transformation": "Dijital Dönüşüm",
+        "legal-operations": "Hukuk Operasyonları",
+      },
+      readArticle: "Makaleyi Oku",
+      listenNow: "Şimdi Dinle",
+      downloadReport: "Raporu İndir (PDF)",
+      comingSoon: "Yakında",
+      loadMore: "Daha Fazla İçerik Yükle",
+      minRead: "dk okuma",
+      podcastLabel: "PODCAST",
+      reportLabel: "RAPOR",
+      emptyFilter: "Bu kategoriye ait içerik henüz bulunmuyor.",
+      newsletter: {
+        heading: "Hukuk Teknolojisindeki Yenilikleri Takip Edin",
+        description:
+          "Hukuk teknolojileri, sorumlu yapay zekâ, siber güvenlik ve dijital dönüşüm hakkında özenle seçilmiş haftalık içerikleri alın.",
+        placeholder: "İş e-posta adresiniz",
+        button: "Abone Ol",
+        notice:
+          "Abone olarak Gizlilik Politikamızı kabul etmiş olursunuz. Dilediğiniz zaman abonelikten ayrılabilirsiniz.",
+        invalid: "Lütfen geçerli bir iş e-posta adresi girin.",
+        loading: "Kontrol ediliyor…",
+        success:
+          "Teşekkürler. Bülten abonelik sistemimiz yakında kullanıma açılacaktır.",
+      },
+      detail: {
+        back: "İçgörülere Dön",
+        underPreparation: "Editoryal içerik hazırlık aşamasında",
+        disclaimer:
+          "Lawyn AI editoryal içerikleri genel bilgilendirme amaçlıdır ve hukuki tavsiye niteliği taşımaz.",
+      },
+    },
+    contactPage: {
+      metaTitle: "İletişim ve Demo Talebi | Lawyn AI",
+      metaDescription:
+        "Lawyn AI çözümlerini keşfetmek ve kişiselleştirilmiş bir demo talep etmek için bizimle iletişime geçin.",
+      heading: "Hukuk Büronuzu Dönüştürün",
+      description:
+        "Lawyn AI’ın iş akışlarınızı nasıl kolaylaştırabileceğini, güvenli belge yönetimini nasıl destekleyebileceğini ve ekibinizin daha verimli çalışmasına nasıl yardımcı olabileceğini görmek için kişiselleştirilmiş bir demo talep edin.",
+      officeLabel: "Ofis",
+      phoneLabel: "Telefon",
+      emailLabel: "E-posta",
+      placeholders: {
+        address: "[Ofis adresi eklenecek]",
+        phone: "[Telefon numarası eklenecek]",
+        email: "[E-posta adresi eklenecek]",
+      },
+      socialUnavailable: "Bağlantı henüz yok",
+      formTitle: "Demo Talep Edin",
+      formDescription:
+        "Formu doldurarak ihtiyaçlarınızı bizimle paylaşın. Ekibimiz, size en uygun Lawyn AI çözümünü görüşmek üzere sizinle iletişime geçsin.",
+      fields: {
+        fullName: "Ad Soyad",
+        company: "Hukuk Bürosu / Şirket Adı",
+        email: "İş E-postası",
+        phone: "Telefon Numarası (İsteğe Bağlı)",
+        teamSize: "Ekip Büyüklüğü",
+        teamSizePlaceholder: "Ekip Büyüklüğünü Seçin",
+        solutionInterest: "İlgilenilen Çözüm",
+        solutionPlaceholder: "Öncelikli İlgi Alanınızı Seçin",
+        message: "Size nasıl yardımcı olabiliriz? (İsteğe Bağlı)",
+        preferredContact: "Tercih Edilen İletişim Yöntemi",
+        consentPrefix: "",
+        privacyNotice: "KVKK Aydınlatma Metni",
+        privacyPolicy: "Gizlilik Politikası",
+        consentSuffix:
+          "’nı okudum; demo talebim kapsamında kişisel verilerimin işlenmesini kabul ediyorum.",
+        and: "ve",
+        noticeParticle: "’ni",
+        policyParticle: "’nı",
+      },
+      teamSizes: {
+        "1-5": "1–5",
+        "6-20": "6–20",
+        "21-50": "21–50",
+        "51-100": "51–100",
+        "101+": "101+",
+      },
+      solutions: {
+        "ai-document-analysis": "Yapay Zekâ Destekli Doküman Analizi",
+        "case-management": "Dava ve Dosya Yönetimi",
+        "document-automation": "Doküman Otomasyonu",
+        "secure-client-portal": "Güvenli Müvekkil Portalı",
+        "reporting-analytics": "Raporlama ve Analitik",
+        "custom-software": "Özel Yazılım Geliştirme",
+        "system-integration": "Sistem Entegrasyonu",
+        "not-sure": "Henüz Emin Değilim",
+      },
+      contactMethods: {
+        email: "E-posta",
+        phone: "Telefon",
+        "online-meeting": "Çevrim İçi Görüşme",
+      },
+      messageHint: "En fazla 1000 karakter",
+      submit: "Demo Talep Et",
+      submitting: "Gönderiliyor…",
+      unconnected:
+        "Demo talebi sistemi henüz bağlanmadı. Formunuz doğrulandı ancak herhangi bir veri gönderilmedi.",
+      error: "Talebiniz hazırlanırken bir sorun oluştu. Lütfen tekrar deneyin.",
+      nextHeading: "Sonraki Adımlar Neler?",
+      nextDescription:
+        "Planlı başlangıç sürecimiz, mevcut iş akışlarınızı mümkün olduğunca az etkileyerek ekibinizin Lawyn AI’a geçişini kolaylaştırır.",
+      steps: [
+        {
+          title: "İhtiyaç Analizi",
+          description:
+            "İş akışlarınızı, önceliklerinizi, operasyonel sorunlarınızı ve teknik ihtiyaçlarınızı birlikte değerlendiririz.",
+        },
+        {
+          title: "Çözüm Tasarımı",
+          description:
+            "Büronuzun çalışma biçimine ve hedeflerine uygun bir çözüm planı hazırlarız.",
+        },
+        {
+          title: "Entegrasyon",
+          description:
+            "Platformu yapılandırır, gerekli veri ve sistem entegrasyonlarını kullanıma hazırlarız.",
+        },
+        {
+          title: "Sürekli Destek",
+          description:
+            "Eğitim, teknik yardım ve sürekli ürün iyileştirmeleriyle ekibinizi destekleriz.",
+        },
+      ],
+      legalDialog: {
+        title: "Geçici taslak bildirim",
+        body: "Bu metin, Lawyn AI gizlilik belgelerine ait geçici bir taslaktır. Nihai politika sayfaları üretim öncesi hukuki inceleme gerektirir.",
+        close: "Kapat",
+      },
+    },
+    servicesPage: {
+      metaTitle: "Hukuk Teknolojisi Hizmetleri | Lawyn AI",
+      metaDescription:
+        "Özel yazılım geliştirme, hukuki iş akışı otomasyonu, yapay zekâ entegrasyonu, bulut geçişi, siber güvenlik ve teknik danışmanlık hizmetlerimizi keşfedin.",
+      badge: "UZMANLIĞIMIZ",
+      heading: "Hukukta Yenilik Üretenlerin Teknoloji Ortağı",
+      description:
+        "Modern hukuk uygulamalarının operasyonel ihtiyaçları için güvenli, ölçeklenebilir ve kullanıcı dostu dijital çözümler tasarlıyoruz. Özel yazılım geliştirmeden iş akışı otomasyonuna ve yapay zekâ entegrasyonuna kadar karmaşık ihtiyaçları uygulanabilir teknolojilere dönüştürüyoruz.",
+      primaryCta: "Projenizi Konuşalım",
+      secondaryCta: "Hizmetleri İncele",
+      capabilities: [
+        { label: "Teslimat Modeli", value: "Modüler" },
+        { label: "Güvenlik Yaklaşımı", value: "Güvenlik Öncelikli" },
+        { label: "Platform Tasarımı", value: "Ölçeklenebilir" },
+      ],
+      strip: [
+        "Güvenlik Öncelikli Mimari",
+        "Veri Gizliliği Odaklı Tasarım",
+        "Entegrasyona Hazır Sistemler",
+        "Sürekli Teknik İş Ortaklığı",
+      ],
+      introHeading: "Kapsamlı Teknik Çözümler",
+      introDescription:
+        "Yalnızca kod yazmıyoruz. Hukuki iş akışlarını analiz ediyor, güvenilir sistem mimarileri tasarlıyor ve hukuk ekiplerinin daha verimli ve güvenli çalışmasını destekleyen teknolojiler geliştiriyoruz.",
+      previous: "Önceki hizmet",
+      next: "Sonraki hizmet",
+      whatWeProvide: "Neler sunuyoruz",
+      learnMore: "Detayları Gör",
+      closeDetail: "Kapat",
+      ctaHeading: "Büronuzun Teknolojik Altyapısını Modernleştirmeye Hazır mısınız?",
+      ctaDescription:
+        "İş akışlarınızı, teknik ihtiyaçlarınızı ve kurumunuza en uygun Lawyn AI hizmetlerini görüşmek için bir danışmanlık görüşmesi planlayın.",
+      ctaPrimary: "Görüşme Planla",
+      ctaSecondary: "Çözümleri İncele",
     },
   },
 };

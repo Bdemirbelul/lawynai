@@ -2,6 +2,7 @@
 
 import { ArrowRight, CircleCheck } from "lucide-react";
 import { DashboardMockup } from "@/components/home/DashboardMockup";
+import { FloatingNotifications } from "@/components/home/FloatingNotifications";
 import { TrustIndicator } from "@/components/home/TrustIndicator";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
@@ -9,9 +10,9 @@ export function Hero() {
   const { t } = useLanguage();
 
   return (
-    <section className="relative overflow-hidden bg-[#F5F7FB]">
+    <section className="relative overflow-x-hidden bg-[#F5F7FB]">
       <div className="mx-auto grid min-h-[calc(100svh-60px)] w-full max-w-[1180px] items-center gap-8 px-5 py-8 md:gap-10 md:px-8 md:py-10 min-[900px]:grid-cols-[0.92fr_1.08fr] min-[900px]:gap-8 min-[900px]:px-10 min-[900px]:py-8 xl:gap-12 xl:py-14">
-        <div className="flex min-w-0 flex-col justify-center">
+        <div className="relative z-10 flex min-w-0 flex-col justify-center">
           <div className="inline-flex w-fit items-center gap-1.5 rounded-full border border-[#E4E7EC] bg-[#EEF1F6] px-2.5 py-1 text-[11.5px] font-medium text-[#344054]">
             <CircleCheck
               className="size-3.5 text-[#3154D5]"
@@ -45,7 +46,7 @@ export function Hero() {
 
           <div className="mt-5 flex w-full flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center">
             <a
-              href="#contact"
+              href="/contact"
               className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-md bg-[#050505] px-5 text-[13.5px] font-medium text-white shadow-[0_1px_2px_rgba(16,24,40,0.18)] transition-[background-color,transform,box-shadow] hover:bg-[#1a1a1a] hover:shadow-[0_4px_10px_-4px_rgba(16,24,40,0.35)] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3154D5] sm:w-auto"
             >
               {t.hero.primaryCta}
@@ -64,8 +65,15 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="min-w-0 pb-6 min-[900px]:pb-2">
-          <DashboardMockup />
+        <div className="relative z-0 min-w-0 overflow-visible px-2 pb-10 sm:px-4 sm:pb-12 min-[900px]:px-6 min-[900px]:pb-10 xl:px-8">
+          <div className="relative isolate overflow-visible">
+            <div className="relative z-10">
+              <DashboardMockup />
+            </div>
+            <div className="pointer-events-none absolute inset-0 z-30 overflow-visible">
+              <FloatingNotifications />
+            </div>
+          </div>
         </div>
       </div>
     </section>
