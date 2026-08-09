@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, LoaderCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
+import { DemoSuccessDialog } from "@/components/contact/DemoSuccessDialog";
 import { LegalNoticeDialog } from "@/components/contact/LegalNoticeDialog";
 import {
   contactMethodValues,
@@ -37,8 +38,10 @@ type FormValues = {
 export function DemoRequestForm() {
   const { locale, t } = useLanguage();
   const [dialog, setDialog] = useState<"notice" | "policy" | null>(null);
+  const [successOpen, setSuccessOpen] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
-  const [statusTone, setStatusTone] = useState<"info" | "error">("info");
+  const [formStartedAt] = useState(() => Date.now());
+  const honeypotRef = useRef<HTMLInputElement>(null);
 
   const schema = useMemo(
     () => createDemoRequestSchema(demoSchemaMessages[locale]),
@@ -84,23 +87,27 @@ export function DemoRequestForm() {
 
   async function onSubmit(values: DemoRequestPayload) {
     setStatusMessage(null);
-    const result = await submitDemoRequest(values);
-
-    if (result.mode === "unconnected") {
-      setStatusTone("info");
-      setStatusMessage(t.contactPage.unconnected);
-      return;
-    }
+    const result = await submitDemoRequest({
+      ...values,
+      locale,
+      website: honeypotRef.current?.value ?? "",
+      formStartedAt,
+    });
 
     if (!result.ok) {
-      setStatusTone("error");
-      setStatusMessage(t.contactPage.error);
+      if (result.code === "rate_limited") {
+        setStatusMessage(t.contactPage.rateLimited);
+      } else if (result.code === "spam_detected") {
+        setStatusMessage(t.contactPage.spamDetected);
+      } else {
+        setStatusMessage(t.contactPage.error);
+      }
       return;
     }
 
     reset();
-    setStatusTone("info");
-    setStatusMessage(t.contactPage.unconnected);
+    if (honeypotRef.current) honeypotRef.current.value = "";
+    setSuccessOpen(true);
   }
 
   return (
@@ -114,10 +121,26 @@ export function DemoRequestForm() {
         </p>
 
         <form
-          className="mt-8 space-y-6"
+          className="relative mt-8 space-y-6"
           onSubmit={handleSubmit(onSubmit)}
           noValidate
         >
+          {/* Honeypot — leave empty; hidden from users, filled by many bots */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0"
+          >
+            <label htmlFor="website">Website</label>
+            <input
+              ref={honeypotRef}
+              id="website"
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
             <Field
               id="fullName"
@@ -320,12 +343,8 @@ export function DemoRequestForm() {
 
           {statusMessage ? (
             <p
-              role="status"
-              className={`rounded-lg px-3 py-2.5 text-[13px] leading-relaxed ${
-                statusTone === "error"
-                  ? "bg-[#FEF3F2] text-[#B42318]"
-                  : "bg-[#EEF2FF] text-[#3154D5]"
-              }`}
+              role="alert"
+              className="rounded-lg bg-[#FEF3F2] px-3 py-2.5 text-[13px] leading-relaxed text-[#B42318]"
             >
               {statusMessage}
             </p>
@@ -356,6 +375,10 @@ export function DemoRequestForm() {
         open={dialog !== null}
         kind={dialog ?? "notice"}
         onClose={() => setDialog(null)}
+      />
+      <DemoSuccessDialog
+        open={successOpen}
+        onClose={() => setSuccessOpen(false)}
       />
     </>
   );

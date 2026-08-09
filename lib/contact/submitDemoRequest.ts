@@ -1,28 +1,56 @@
 import type { DemoRequestPayload } from "@/lib/contact/demoRequestSchema";
+import type { Locale } from "@/lib/i18n/translations";
+
+export type DemoRequestClientPayload = DemoRequestPayload & {
+  locale: Locale;
+  website: string;
+  formStartedAt: number;
+};
 
 export type DemoRequestResult =
   | { ok: true; mode: "connected" }
-  | { ok: false; mode: "unconnected"; messageKey: "unconnected" }
-  | { ok: false; mode: "error"; messageKey: "error" };
+  | {
+      ok: false;
+      mode: "error";
+      code:
+        | "error"
+        | "rate_limited"
+        | "spam_detected"
+        | "too_fast"
+        | "unconnected";
+    };
 
-/**
- * Integration point for a future demo-request backend
- * (API route, Resend, Supabase, CRM, etc.).
- * Currently validates that the payload arrived and reports
- * that no delivery channel has been connected yet.
- */
 export async function submitDemoRequest(
-  payload: DemoRequestPayload,
+  payload: DemoRequestClientPayload,
 ): Promise<DemoRequestResult> {
-  void payload;
+  try {
+    const response = await fetch("/api/demo-request", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
-  await new Promise((resolve) => {
-    window.setTimeout(resolve, 700);
-  });
+    let data: { ok?: boolean; error?: string } = {};
+    try {
+      data = await response.json();
+    } catch {
+      data = {};
+    }
 
-  return {
-    ok: false,
-    mode: "unconnected",
-    messageKey: "unconnected",
-  };
+    if (response.ok && data.ok) {
+      return { ok: true, mode: "connected" };
+    }
+
+    const code = data.error;
+    if (code === "rate_limited" || code === "too_fast") {
+      return { ok: false, mode: "error", code: "rate_limited" };
+    }
+    if (code === "spam_detected") {
+      return { ok: false, mode: "error", code: "spam_detected" };
+    }
+
+    return { ok: false, mode: "error", code: "error" };
+  } catch {
+    return { ok: false, mode: "error", code: "error" };
+  }
 }

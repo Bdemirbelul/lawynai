@@ -244,8 +244,11 @@ export type Translations = {
     messageHint: string;
     submit: string;
     submitting: string;
+    success: string;
     unconnected: string;
     error: string;
+    rateLimited: string;
+    spamDetected: string;
     nextHeading: string;
     nextDescription: string;
     steps: [
@@ -257,6 +260,10 @@ export type Translations = {
     legalDialog: {
       title: string;
       body: string;
+      close: string;
+    };
+    successDialog: {
+      title: string;
       close: string;
     };
   };
@@ -674,9 +681,15 @@ export const translations: Record<Locale, Translations> = {
       messageHint: "Maximum 1000 characters",
       submit: "Request Demo",
       submitting: "Submitting…",
+      success:
+        "Thank you. Your demo request has been received. Our team will contact you shortly.",
       unconnected:
         "The demo request service has not been connected yet. Your form was validated, but no data was submitted.",
       error: "Something went wrong while preparing your request. Please try again.",
+      rateLimited:
+        "Too many requests from this device or email. Please wait a while and try again.",
+      spamDetected:
+        "Your request could not be accepted. Please revise the message and try again.",
       nextHeading: "What Happens Next?",
       nextDescription:
         "Our structured onboarding process helps your team adopt Lawyn AI with minimal disruption to existing workflows.",
@@ -706,6 +719,10 @@ export const translations: Record<Locale, Translations> = {
         title: "Temporary draft notice",
         body: "This is temporary draft wording for Lawyn AI’s privacy materials. Final policy pages require legal review before production use.",
         close: "Close",
+      },
+      successDialog: {
+        title: "Request received",
+        close: "Got it",
       },
     },
     servicesPage: {
@@ -1176,9 +1193,15 @@ export const translations: Record<Locale, Translations> = {
       messageHint: "En fazla 1000 karakter",
       submit: "Demo Talep Et",
       submitting: "Gönderiliyor…",
+      success:
+        "Teşekkürler. Demo talebiniz alındı. Ekibimiz kısa süre içinde sizinle iletişime geçecek.",
       unconnected:
         "Demo talebi sistemi henüz bağlanmadı. Formunuz doğrulandı ancak herhangi bir veri gönderilmedi.",
       error: "Talebiniz hazırlanırken bir sorun oluştu. Lütfen tekrar deneyin.",
+      rateLimited:
+        "Bu cihaz veya e-posta adresinden çok fazla istek geldi. Lütfen bir süre sonra tekrar deneyin.",
+      spamDetected:
+        "Talebiniz kabul edilemedi. Lütfen mesajınızı gözden geçirip tekrar deneyin.",
       nextHeading: "Sonraki Adımlar Neler?",
       nextDescription:
         "Planlı başlangıç sürecimiz, mevcut iş akışlarınızı mümkün olduğunca az etkileyerek ekibinizin Lawyn AI’a geçişini kolaylaştırır.",
@@ -1208,6 +1231,10 @@ export const translations: Record<Locale, Translations> = {
         title: "Geçici taslak bildirim",
         body: "Bu metin, Lawyn AI gizlilik belgelerine ait geçici bir taslaktır. Nihai politika sayfaları üretim öncesi hukuki inceleme gerektirir.",
         close: "Kapat",
+      },
+      successDialog: {
+        title: "Talebiniz alındı",
+        close: "Tamam",
       },
     },
     servicesPage: {
