@@ -16,7 +16,7 @@ export default function ContactPage() {
     <div className="flex min-h-full flex-col bg-white">
       <Header />
       <main className="flex-1">
-        <section className="bg-[#F7F8FA]">
+        <section id="contact" className="scroll-mt-20 bg-[#F7F8FA]">
           <div className="mx-auto grid w-full max-w-[1180px] items-start gap-10 px-5 py-12 md:px-8 md:py-14 min-[960px]:grid-cols-[0.9fr_1.2fr] min-[960px]:gap-12 lg:px-10 lg:py-16">
             <ContactIntro />
             <DemoRequestForm />

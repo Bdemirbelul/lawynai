@@ -286,6 +286,39 @@ export type Translations = {
     ctaPrimary: string;
     ctaSecondary: string;
   };
+  solutionsMenu: {
+    eyebrow: string;
+    title: string;
+    description: string;
+    exploreAll: string;
+    categories: {
+      documentIntelligence: string;
+      legalWork: string;
+      practiceManagement: string;
+    };
+    items: {
+      contractReview: { title: string; description: string };
+      documentAnalysis: { title: string; description: string };
+      clauseComparison: { title: string; description: string };
+      riskDetection: { title: string; description: string };
+      documentSummarization: { title: string; description: string };
+      legalResearch: { title: string; description: string };
+      petitionDrafting: { title: string; description: string };
+      legalWritingAssistant: { title: string; description: string };
+      caseLawDiscovery: { title: string; description: string };
+      citationVerification: { title: string; description: string };
+      caseManagement: { title: string; description: string };
+      deadlineTracking: { title: string; description: string };
+      clientWorkspace: { title: string; description: string };
+      teamCollaboration: { title: string; description: string };
+      complianceMonitoring: { title: string; description: string };
+    };
+    cta: {
+      title: string;
+      description: string;
+      button: string;
+    };
+  };
 };
 
 export const translations: Record<Locale, Translations> = {
@@ -710,6 +743,86 @@ export const translations: Record<Locale, Translations> = {
       ctaPrimary: "Book Consultation",
       ctaSecondary: "Explore Solutions",
     },
+    solutionsMenu: {
+      eyebrow: "LAWYN AI SOLUTIONS",
+      title: "AI-powered tools for every stage of legal work",
+      description:
+        "Review documents, research legal sources, manage matters and create stronger legal work in less time.",
+      exploreAll: "Explore all solutions →",
+      categories: {
+        documentIntelligence: "Document Intelligence",
+        legalWork: "Legal Work",
+        practiceManagement: "Practice Management",
+      },
+      items: {
+        contractReview: {
+          title: "Contract Review",
+          description: "Identify risks, obligations and unusual clauses.",
+        },
+        documentAnalysis: {
+          title: "Document Analysis",
+          description: "Turn complex legal documents into clear insights.",
+        },
+        clauseComparison: {
+          title: "Clause Comparison",
+          description: "Compare clauses across contracts and versions.",
+        },
+        riskDetection: {
+          title: "Risk Detection",
+          description: "Highlight legal, financial and compliance risks.",
+        },
+        documentSummarization: {
+          title: "Document Summarization",
+          description: "Create concise summaries of lengthy documents.",
+        },
+        legalResearch: {
+          title: "Legal Research",
+          description: "Research legislation, case law and legal sources.",
+        },
+        petitionDrafting: {
+          title: "Petition Drafting",
+          description: "Create structured first drafts for legal filings.",
+        },
+        legalWritingAssistant: {
+          title: "Legal Writing Assistant",
+          description: "Improve clarity, consistency and legal language.",
+        },
+        caseLawDiscovery: {
+          title: "Case Law Discovery",
+          description: "Find decisions related to your legal question.",
+        },
+        citationVerification: {
+          title: "Citation Verification",
+          description: "Check citations and supporting legal references.",
+        },
+        caseManagement: {
+          title: "Case Management",
+          description: "Organize matters, documents and case activity.",
+        },
+        deadlineTracking: {
+          title: "Deadline Tracking",
+          description: "Monitor hearings, filings and critical dates.",
+        },
+        clientWorkspace: {
+          title: "Client Workspace",
+          description: "Manage client information in one secure place.",
+        },
+        teamCollaboration: {
+          title: "Team Collaboration",
+          description: "Collaborate securely across legal teams.",
+        },
+        complianceMonitoring: {
+          title: "Compliance Monitoring",
+          description: "Track regulatory obligations and compliance tasks.",
+        },
+      },
+      cta: {
+        title: "Not sure which solution fits your team?",
+        description:
+          "Tell us about your legal workflow and we’ll help you find the right setup.",
+        button: "Request a Demo",
+      },
+    },
   },
   tr: {
     nav: {
@@ -1131,6 +1244,96 @@ export const translations: Record<Locale, Translations> = {
         "İş akışlarınızı, teknik ihtiyaçlarınızı ve kurumunuza en uygun Lawyn AI hizmetlerini görüşmek için bir danışmanlık görüşmesi planlayın.",
       ctaPrimary: "Görüşme Planla",
       ctaSecondary: "Çözümleri İncele",
+    },
+    solutionsMenu: {
+      eyebrow: "LAWYN AI ÇÖZÜMLERİ",
+      title: "Hukuki çalışmaların her aşaması için yapay zekâ destekli araçlar",
+      description:
+        "Belgeleri inceleyin, hukuki kaynaklarda araştırma yapın, dosyalarınızı yönetin ve daha güçlü hukuki çalışmalar oluşturun.",
+      exploreAll: "Tüm çözümleri keşfedin →",
+      categories: {
+        documentIntelligence: "Belge Zekâsı",
+        legalWork: "Hukuki Çalışmalar",
+        practiceManagement: "Hukuk Bürosu Yönetimi",
+      },
+      items: {
+        contractReview: {
+          title: "Sözleşme İncelemesi",
+          description:
+            "Riskleri, yükümlülükleri ve olağan dışı maddeleri belirleyin.",
+        },
+        documentAnalysis: {
+          title: "Belge Analizi",
+          description:
+            "Karmaşık hukuki belgeleri anlaşılır içgörülere dönüştürün.",
+        },
+        clauseComparison: {
+          title: "Madde Karşılaştırması",
+          description:
+            "Farklı sözleşme ve versiyonlardaki maddeleri karşılaştırın.",
+        },
+        riskDetection: {
+          title: "Risk Tespiti",
+          description: "Hukuki, finansal ve uyumluluk risklerini belirleyin.",
+        },
+        documentSummarization: {
+          title: "Belge Özetleme",
+          description:
+            "Uzun belgeler için kısa ve anlaşılır özetler oluşturun.",
+        },
+        legalResearch: {
+          title: "Hukuki Araştırma",
+          description: "Mevzuat, içtihat ve hukuki kaynaklarda araştırma yapın.",
+        },
+        petitionDrafting: {
+          title: "Dilekçe Hazırlama",
+          description:
+            "Hukuki başvurular için düzenli ilk taslaklar oluşturun.",
+        },
+        legalWritingAssistant: {
+          title: "Hukuki Yazım Asistanı",
+          description:
+            "Metinlerin açıklığını, tutarlılığını ve hukuki dilini geliştirin.",
+        },
+        caseLawDiscovery: {
+          title: "İçtihat Keşfi",
+          description: "Hukuki sorunuzla ilgili mahkeme kararlarını bulun.",
+        },
+        citationVerification: {
+          title: "Atıf Doğrulama",
+          description:
+            "Atıfları ve destekleyici hukuki kaynakları kontrol edin.",
+        },
+        caseManagement: {
+          title: "Dava ve Dosya Yönetimi",
+          description: "Dosyaları, belgeleri ve dava faaliyetlerini düzenleyin.",
+        },
+        deadlineTracking: {
+          title: "Son Tarih Takibi",
+          description:
+            "Duruşmaları, başvuruları ve kritik tarihleri takip edin.",
+        },
+        clientWorkspace: {
+          title: "Müvekkil Çalışma Alanı",
+          description: "Müvekkil bilgilerini güvenli bir alanda yönetin.",
+        },
+        teamCollaboration: {
+          title: "Ekip İş Birliği",
+          description:
+            "Hukuk ekipleri arasında güvenli şekilde birlikte çalışın.",
+        },
+        complianceMonitoring: {
+          title: "Uyumluluk Takibi",
+          description:
+            "Düzenleyici yükümlülükleri ve uyumluluk görevlerini takip edin.",
+        },
+      },
+      cta: {
+        title: "Ekibiniz için hangi çözümün uygun olduğundan emin değil misiniz?",
+        description:
+          "Hukuki çalışma sürecinizi anlatın, size en uygun yapıyı birlikte belirleyelim.",
+        button: "Demo Talep Et",
+      },
     },
   },
 };

@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
-import { ChevronDown, Menu, User, X } from "lucide-react";
+import { Menu, User, X } from "lucide-react";
 import { Logo } from "@/components/shared/Logo";
 import { LanguageSwitcher } from "@/components/shared/LanguageSwitcher";
+import { SolutionsMegaMenu } from "@/components/navigation/solutions-mega-menu";
+import { MobileSolutionsMenu } from "@/components/navigation/mobile-solutions-menu";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 type NavKey = "home" | "solutions" | "services" | "about" | "insights" | "contact";
@@ -13,17 +15,22 @@ type NavKey = "home" | "solutions" | "services" | "about" | "insights" | "contac
 type NavItem = {
   key: NavKey;
   href: string;
-  hasChevron?: boolean;
 };
+
+const LOGIN_URL =
+  "https://lawynai-dashboard-git-main-demirkan.vercel.app/login";
 
 const navItems: NavItem[] = [
   { key: "home", href: "/" },
-  { key: "solutions", href: "/#solutions", hasChevron: true },
+  { key: "solutions", href: "/#solutions" },
   { key: "services", href: "/services" },
   { key: "about", href: "/#about" },
   { key: "insights", href: "/insights" },
   { key: "contact", href: "/contact" },
 ];
+
+const userLinkClassName =
+  "hidden size-8 items-center justify-center rounded-full bg-[#101828] text-white transition-colors hover:bg-[#1D2939] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3154D5] sm:inline-flex";
 
 export function Header() {
   const { t } = useLanguage();
@@ -72,6 +79,17 @@ export function Header() {
           {navItems.map((item) => {
             const label = t.nav[item.key];
             const active = isActive(item.key);
+
+            if (item.key === "solutions") {
+              return (
+                <SolutionsMegaMenu
+                  key={item.key}
+                  label={label}
+                  active={active}
+                />
+              );
+            }
+
             return (
               <Link
                 key={item.key}
@@ -84,13 +102,6 @@ export function Header() {
                 }`}
               >
                 {label}
-                {item.hasChevron ? (
-                  <ChevronDown
-                    className="size-3.5 opacity-70"
-                    aria-hidden="true"
-                    strokeWidth={2}
-                  />
-                ) : null}
               </Link>
             );
           })}
@@ -108,13 +119,13 @@ export function Header() {
             {t.nav.requestDemo}
           </Link>
 
-          <button
-            type="button"
-            className="hidden size-8 items-center justify-center rounded-full bg-[#101828] text-white transition-colors hover:bg-[#1D2939] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3154D5] sm:inline-flex"
-            aria-label={t.nav.userAccount}
+          <a
+            href={LOGIN_URL}
+            className={userLinkClassName}
+            aria-label="Sign in to LAWYN AI"
           >
             <User className="size-3.5" strokeWidth={2.25} aria-hidden="true" />
-          </button>
+          </a>
 
           <button
             type="button"
@@ -138,7 +149,7 @@ export function Header() {
           id={menuId}
           className="border-t border-[#E4E7EC] bg-white min-[900px]:hidden"
         >
-          <div className="mx-auto flex max-w-[1180px] flex-col gap-1 px-5 py-4 md:px-8">
+          <div className="mx-auto flex max-h-[calc(100dvh-60px)] max-w-[1180px] flex-col gap-1 overflow-y-auto overscroll-contain px-5 py-4 md:px-8">
             <div className="mb-3 sm:hidden">
               <LanguageSwitcher />
             </div>
@@ -146,6 +157,18 @@ export function Header() {
             {navItems.map((item) => {
               const label = t.nav[item.key];
               const active = isActive(item.key);
+
+              if (item.key === "solutions") {
+                return (
+                  <MobileSolutionsMenu
+                    key={item.key}
+                    label={label}
+                    active={active}
+                    onNavigate={() => setMenuOpen(false)}
+                  />
+                );
+              }
+
               return (
                 <Link
                   key={item.key}
@@ -159,9 +182,6 @@ export function Header() {
                   }`}
                 >
                   <span>{label}</span>
-                  {item.hasChevron ? (
-                    <ChevronDown className="size-4 opacity-70" aria-hidden="true" />
-                  ) : null}
                 </Link>
               );
             })}
@@ -174,14 +194,15 @@ export function Header() {
               >
                 {t.nav.requestDemo}
               </Link>
-              <button
-                type="button"
+              <a
+                href={LOGIN_URL}
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-[#E4E7EC] text-sm font-medium text-[#101828] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#3154D5]"
-                aria-label={t.nav.userAccount}
+                aria-label="Sign in to LAWYN AI"
+                onClick={() => setMenuOpen(false)}
               >
                 <User className="size-4" aria-hidden="true" />
                 {t.nav.userAccount}
-              </button>
+              </a>
             </div>
           </div>
         </div>
