@@ -4,6 +4,7 @@ import { ArrowRight, CircleCheck } from "lucide-react";
 import { DashboardMockup } from "@/components/home/DashboardMockup";
 import { FloatingNotifications } from "@/components/home/FloatingNotifications";
 import { TrustIndicator } from "@/components/home/TrustIndicator";
+import { WindowsDownloadCta } from "@/components/home/WindowsDownloadCta";
 import { useLanguage } from "@/lib/i18n/LanguageProvider";
 
 export function Hero() {
@@ -59,6 +60,8 @@ export function Hero() {
               {t.hero.secondaryCta}
             </a>
           </div>
+
+          <WindowsDownloadCta />
 
           <div className="mt-7 sm:mt-8">
             <TrustIndicator />

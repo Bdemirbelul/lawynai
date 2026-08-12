@@ -49,6 +49,12 @@ export type Translations = {
     secondaryCta: string;
     trust: string;
   };
+  download: {
+    cta: string;
+    ariaLabel: string;
+    meta: string;
+    mobileNote: string;
+  };
   mockup: {
     searchPlaceholder: string;
     analyzedTitle: string;
@@ -353,6 +359,13 @@ export const translations: Record<Locale, Translations> = {
       primaryCta: "Request a Demo",
       secondaryCta: "Explore Solutions",
       trust: "Secure and scalable technology built for legal professionals.",
+    },
+    download: {
+      cta: "Download for Windows",
+      ariaLabel: "Download Lawyn AI Desktop for Windows",
+      meta: "Windows 10/11 • 64-bit • Version 1.0.2",
+      mobileNote:
+        "Lawyn AI Desktop is currently available for Windows only.",
     },
     mockup: {
       searchPlaceholder: "Search matters, contracts…",
@@ -865,6 +878,13 @@ export const translations: Record<Locale, Translations> = {
       primaryCta: "Demo Talep Et",
       secondaryCta: "Çözümleri İncele",
       trust: "Hukuk profesyonelleri için geliştirilen güvenli ve ölçeklenebilir teknoloji.",
+    },
+    download: {
+      cta: "Windows için İndir",
+      ariaLabel: "Lawyn AI Desktop uygulamasını Windows için indir",
+      meta: "Windows 10/11 • 64-bit • Sürüm 1.0.2",
+      mobileNote:
+        "Lawyn AI Desktop şu anda yalnızca Windows için kullanılabilir.",
     },
     mockup: {
       searchPlaceholder: "Dosya, sözleşme ara…",
